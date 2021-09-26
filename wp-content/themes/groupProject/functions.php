@@ -1,3 +1,4 @@
+<?php echo "hello world"; ?>
 <?php
 function wp_register_styles()
 {
