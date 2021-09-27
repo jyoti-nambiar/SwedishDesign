@@ -22,7 +22,7 @@ function wp_register_scripts()
 }
 add_action('wp_enqueue_scripts', 'wp_register_scripts');
 
-
+//theme start page background image
 function yourtheme_setup()
 {
     add_theme_support(
@@ -48,3 +48,28 @@ function yourtheme_setup()
     );
 }
 add_action('after_setup_theme', 'yourtheme_setup');
+
+//hooking menus
+function navbar_menus()
+{
+    $locations = array(
+        'primary' => "Header Primary menu ",
+        'secondary' => "Pages Secondary menu ",
+        'tertiary' => "Blog Tertiary menu",
+        'footer' => "Footer Menu Items"
+
+    );
+
+    register_nav_menus($locations);
+}
+
+add_action('init', 'navbar_menus');
+
+//post thumbnail pic
+
+function wpshout_theme_support()
+{
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+}
+add_action('after_setup_theme', 'wpshout_theme_support');
