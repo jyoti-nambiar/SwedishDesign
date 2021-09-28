@@ -1,4 +1,3 @@
-<?php echo "hello world"; ?>
 <?php
 function wp_register_styles()
 {
@@ -44,8 +43,53 @@ function yourtheme_setup()
 
 
 
-        )
+        ),
 
     );
+    add_theme_support("post-thumbnails");
 }
 add_action('after_setup_theme', 'yourtheme_setup');
+
+
+
+//Custom post type for stores
+
+function our_stores(){
+
+    $args = array(
+        "labels" => array(
+                "name" => "Stores",
+                "singular_name" => "Store"
+        ),
+        "hierarchical" => true,
+        "public" => true,
+        "has_archive" => true,
+        "menu_icon" => "dashicons-store",
+        "supports" => array("title", "editor", "thumbnail", "custom-fields"),
+        //"rewrite" => array("slug" => "our-stores")
+
+    );
+
+    register_post_type("stores", $args);
+
+}
+add_action("init", "our_stores");
+
+function store_taxonomy(){
+
+    $args = array(
+            "labels" => array(
+                    "name" => "Locations",
+                    "singular_name" => "Location"
+    ),
+    "public" => true,
+    "hierarchical" => false
+
+    );
+
+    register_taxonomy("locations", array("stores"), $args);
+
+}
+add_action("init", "store_taxonomy");
+
+
