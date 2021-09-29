@@ -176,6 +176,13 @@ header {
   text-transform: uppercase;
   color: var(--main-color);
 }
+
+iframe{
+  width: 80%;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: contain;
+}
 .about-text p {
   font-size: 0.938rem;
   margin: 0.5rem 0 1.4rem;
