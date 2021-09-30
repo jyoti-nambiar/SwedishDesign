@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+}
+
+.main-kontakt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wpcf7-form input {
+    min-width: 500px;
+}
+
+.grid-construction {
+    display: flex;
+}
+
+.image-right  .image-left {
+    width: 200px;
+    height: 200px;
+}
+
+.carousell {
+    display: flex;
+    justify-content: space-between;
+}

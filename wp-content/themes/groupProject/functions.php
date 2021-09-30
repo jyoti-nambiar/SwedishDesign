@@ -5,6 +5,8 @@ function wp_register_styles()
 
     wp_register_style('style', get_template_directory_uri() . "/css/style.css", array(), $version, 'all');
     wp_enqueue_style('style');
+    wp_register_style('kontakt', get_template_directory_uri() . "/css/kontakt.css", array(), $version, 'all');
+    wp_enqueue_style('kontakt');
 
 
     wp_register_style('boxicons', 'https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css', array(), '1.0', 'all');
