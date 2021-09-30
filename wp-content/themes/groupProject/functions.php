@@ -51,13 +51,6 @@ function yourtheme_setup()
 }
 add_action('after_setup_theme', 'yourtheme_setup');
 
-//Register menus
-register_nav_menus(
-    array(
-        "top-menu" => __("Top Menu", "theme"),
-    )
-);
-
 
 
 //Custom post type for stores
@@ -83,7 +76,7 @@ function our_stores(){
 }
 add_action("init", "our_stores");
 
-function store_taxonomy(){
+/* function store_taxonomy(){
 
     $args = array(
             "labels" => array(
@@ -98,6 +91,15 @@ function store_taxonomy(){
     register_taxonomy("locations", array("stores"), $args);
 
 }
-add_action("init", "store_taxonomy");
+add_action("init", "store_taxonomy"); */
+
+
+//Woocommerce setup
+
+function mytheme_add_woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}
+
+add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
 
 
