@@ -22,7 +22,7 @@ function wp_register_scripts()
 }
 add_action('wp_enqueue_scripts', 'wp_register_scripts');
 
-
+//theme start page background image
 function yourtheme_setup()
 {
     /* add_theme_support(
@@ -43,15 +43,87 @@ function yourtheme_setup()
 
 
 
-        )
+        ),
 
-    ); */
-
-    add_theme_support('woocommerce');
+    );
+    add_theme_support("post-thumbnails");
+    add_theme_support("menus");
 }
 add_action('after_setup_theme', 'yourtheme_setup');
 
 
-register_nav_menus( array(
-        'main_menu' => 'Main Menu'
-    ) );
+
+//Custom post type for stores
+
+function our_stores(){
+
+    $args = array(
+        "labels" => array(
+                "name" => "Stores",
+                "singular_name" => "Store"
+        ),
+        "hierarchical" => true,
+        "public" => true,
+        "has_archive" => true,
+        "menu_icon" => "dashicons-store",
+        "supports" => array("title", "editor", "thumbnail", "custom-fields"),
+        //"rewrite" => array("slug" => "our-stores")
+
+    );
+
+    register_post_type("stores", $args);
+
+}
+add_action("init", "our_stores");
+
+/* function store_taxonomy(){
+
+    $args = array(
+            "labels" => array(
+                    "name" => "Locations",
+                    "singular_name" => "Location"
+    ),
+    "public" => true,
+    "hierarchical" => false
+
+    );
+
+    register_taxonomy("locations", array("stores"), $args);
+
+}
+add_action("init", "store_taxonomy"); */
+
+
+//Woocommerce setup
+
+function mytheme_add_woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}
+
+add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
+
+
+//hooking menus
+function navbar_menus()
+{
+    $locations = array(
+        'primary' => "Header Primary menu ",
+        'secondary' => "Pages Secondary menu ",
+        'tertiary' => "Blog Tertiary menu",
+        'footer' => "Footer Menu Items"
+
+    );
+
+    register_nav_menus($locations);
+}
+
+add_action('init', 'navbar_menus');
+
+//post thumbnail pic
+
+function wpshout_theme_support()
+{
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+}
+add_action('after_setup_theme', 'wpshout_theme_support');
