@@ -25,7 +25,7 @@ add_action('wp_enqueue_scripts', 'wp_register_scripts');
 
 function yourtheme_setup()
 {
-    add_theme_support(
+    /* add_theme_support(
 
         'custom-background',
 
@@ -45,6 +45,13 @@ function yourtheme_setup()
 
         )
 
-    );
+    ); */
+
+    add_theme_support('woocommerce');
 }
 add_action('after_setup_theme', 'yourtheme_setup');
+
+
+register_nav_menus( array(
+        'main_menu' => 'Main Menu'
+    ) );

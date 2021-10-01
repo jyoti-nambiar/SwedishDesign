@@ -1,6 +1,5 @@
 <?php
 
-echo "hejjjj";
 ?>
 
 
@@ -18,7 +17,7 @@ echo "hejjjj";
     <?php wp_head(); ?>
 </head>
 
-<body>
+<body <?php body_class( 'woocommerce' ); ?>>
     <!-- Navbar -->
     <header>
         <a href="#" class="logo">Swedish <span>Designs</span></a>
