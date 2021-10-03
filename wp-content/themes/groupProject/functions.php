@@ -6,6 +6,8 @@ function wp_register_styles()
     wp_register_style('style', get_template_directory_uri() . "/css/style.css", array(), $version, 'all');
     wp_enqueue_style('style');
 
+    wp_register_style("shop-style", get_template_directory_uri() . "/css/shop-style.css", array(), $version, "all");
+    wp_enqueue_style("shop-style");
 
     wp_register_style('boxicons', 'https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css', array(), '1.0', 'all');
     wp_enqueue_style('boxicons');
@@ -48,6 +50,7 @@ function yourtheme_setup()
     );
     add_theme_support("post-thumbnails");
     add_theme_support("menus");
+    add_theme_support( 'woocommerce' );
 }
 add_action('after_setup_theme', 'yourtheme_setup');
 
@@ -94,15 +97,6 @@ add_action("init", "our_stores");
 add_action("init", "store_taxonomy"); */
 
 
-//Woocommerce setup
-
-function mytheme_add_woocommerce_support() {
-    add_theme_support( 'woocommerce' );
-}
-
-add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
-
-
 //hooking menus
 function navbar_menus()
 {
@@ -127,3 +121,49 @@ function wpshout_theme_support()
     add_theme_support('post-thumbnails');
 }
 add_action('after_setup_theme', 'wpshout_theme_support');
+
+//Remove sidebar on the shop page
+
+add_action('woocommerce_after_main_content', 'remove_sidebar');
+function remove_sidebar()
+{
+if (is_shop()) {
+remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+}
+}
+
+// Show maximum 9 products per page on the Shop page
+add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
+
+function new_loop_shop_per_page( $cols ) {
+  $cols = 9;
+  return $cols;
+}
+
+//Add styling to shop page 
+add_action("woocommerce_before_shop_loop_item_title", "start_my_product_tag", 15);
+add_action("woocommerce_after_shop_loop_item", "end_my_product_tag", 15);
+add_action("woocommerce_after_shop_loop_item_title", "my_product_excerpt", 5);
+
+
+function start_my_product_tag(){
+    echo "<figcaption>";
+}
+
+function end_my_product_tag(){
+    echo "</figcaption>";
+}
+
+function my_product_excerpt(){
+    $text = get_the_excerpt();
+    echo "<p>".substr($text, 0, 65)."</p>";
+}
+
+//Remove review tab and additional information tab in single product
+add_filter("woocommerce_product_tabs", "my_custom_tabs_function");
+
+function my_custom_tabs_function($tabs){
+    unset($tabs["reviews"]);
+    unset($tabs["additional_information"]);
+    return $tabs;
+}

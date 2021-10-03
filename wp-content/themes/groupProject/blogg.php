@@ -38,7 +38,8 @@ get_header();
                     <div class="post-content">
                         <p class="post-category">
                             <?php the_excerpt();  ?>
-                        </p><span class="post-category">
+                        </p>
+                        <span class="post-category">
 
                             <?php the_category();  ?>
 
