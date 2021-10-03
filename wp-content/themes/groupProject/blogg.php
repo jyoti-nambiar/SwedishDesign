@@ -10,10 +10,15 @@ get_header();
         <p>The magazine for creative, dreamy people and foodie that is always constantly evolving. Serve yourself: dose of inspiration for unique and environmental friendly designs.</p>
 
         <ul class="inspiration-tags-header">
-            <li><a href="/en/en/magazine/decoration/">Chair</a></li>
-            <li><a href="/en/en/magazine/furniture/">Sofa</a></li>
-            <li><a href="/en/en/magazine/rooms/">Dining</a></li>
-            <li><a href="/en/en/magazine/we-are-kave/">We Are SwedishDesign</a></li>
+            <?php wp_nav_menu(
+                array(
+                    'menu' => 'Blog-category',
+                    'container' => '',
+                    'theme_location' => 'Blog Tertiary menu'
+                )
+
+            ); ?>
+
         </ul>
     </div>
 </section>

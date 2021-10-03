@@ -55,12 +55,13 @@ add_action('after_setup_theme', 'yourtheme_setup');
 
 //Custom post type for stores
 
-function our_stores(){
+function our_stores()
+{
 
     $args = array(
         "labels" => array(
-                "name" => "Stores",
-                "singular_name" => "Store"
+            "name" => "Stores",
+            "singular_name" => "Store"
         ),
         "hierarchical" => true,
         "public" => true,
@@ -72,7 +73,6 @@ function our_stores(){
     );
 
     register_post_type("stores", $args);
-
 }
 add_action("init", "our_stores");
 
@@ -96,11 +96,12 @@ add_action("init", "store_taxonomy"); */
 
 //Woocommerce setup
 
-function mytheme_add_woocommerce_support() {
-    add_theme_support( 'woocommerce' );
+function mytheme_add_woocommerce_support()
+{
+    add_theme_support('woocommerce');
 }
 
-add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
+add_action('after_setup_theme', 'mytheme_add_woocommerce_support');
 
 
 //hooking menus
@@ -127,3 +128,21 @@ function wpshout_theme_support()
     add_theme_support('post-thumbnails');
 }
 add_action('after_setup_theme', 'wpshout_theme_support');
+
+//remove side bar from the shop page
+add_action('woocommerce_after_main_content', 'remove_sidebar');
+function remove_sidebar()
+{
+    if (is_shop()) {
+        remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
+    }
+}
+
+add_filter('body_class', 'woo_shop_class');
+// Add WooCommerce Shop Page CSS Class
+function woo_shop_class($classes)
+{
+    if (is_shop())  // Set conditional
+        $classes[] = 'woo-shop'; // Add Class
+    return $classes;
+}

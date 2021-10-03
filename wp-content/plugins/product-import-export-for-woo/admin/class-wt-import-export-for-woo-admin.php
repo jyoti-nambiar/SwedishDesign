@@ -122,8 +122,17 @@ class Wt_Import_Export_For_Woo_Admin_Basic {
 				'sure'=>__('Are you sure?'),
 				'use_expression'=>__('Use expression as value.'),
 				'cancel'=>__('Cancel'),
-			)
-		);
+			),
+                    'pro_plugins' => array(
+                        'order' => "https://www.webtoffee.com/product/order-import-export-plugin-for-woocommerce/?utm_source=free_plugin_revamp&utm_medium=basic_revamp&utm_campaign=Order_Import_Export&utm_content=".WT_P_IEW_VERSION,
+                        'coupon' => "https://www.webtoffee.com/product/order-import-export-plugin-for-woocommerce/?utm_source=free_plugin_revamp&utm_medium=basic_revamp&utm_campaign=Order_Import_Export&utm_content=".WT_P_IEW_VERSION,
+                        'product' => "https://www.webtoffee.com/product/product-import-export-woocommerce/?utm_source=free_plugin_revamp&utm_medium=basic_revamp&utm_campaign=Product_Import_Export&utm_content=".WT_P_IEW_VERSION,
+                        'product_review' => "https://www.webtoffee.com/product/product-import-export-woocommerce/?utm_source=free_plugin_revamp&utm_medium=basic_revamp&utm_campaign=Product_Import_Export&utm_content=".WT_P_IEW_VERSION,
+                        'product_categories' => "https://www.webtoffee.com/product/product-import-export-woocommerce/?utm_source=free_plugin_revamp&utm_medium=basic_revamp&utm_campaign=Product_Import_Export&utm_content=".WT_P_IEW_VERSION,
+                        'product_tags' => "https://www.webtoffee.com/product/product-import-export-woocommerce/?utm_source=free_plugin_revamp&utm_medium=basic_revamp&utm_campaign=Product_Import_Export&utm_content=".WT_P_IEW_VERSION,
+                        'user' => "https://www.webtoffee.com/product/wordpress-users-woocommerce-customers-import-export/?utm_source=free_plugin_revamp&utm_medium=basic_revamp&utm_campaign=User_Import_Export&utm_content=".WT_P_IEW_VERSION,
+                    )
+                );
 		wp_localize_script($this->plugin_name, 'wt_iew_basic_params', $params);
             }
 
@@ -333,6 +342,8 @@ class Wt_Import_Export_For_Woo_Admin_Basic {
                     'coupon'=>'order-import-export-for-woocommerce',  
                     'product'=>'product-import-export-for-woo',
                     'product_review'=>'product-import-export-for-woo',
+                    'product_categories'=>'product-import-export-for-woo',
+                    'product_tags'=>'product-import-export-for-woo',
                     'user'=>'users-customers-import-export-for-wp-woocommerce',                                                          
                 );
                 foreach ($addon_modules_basic as $module_key => $module_path)

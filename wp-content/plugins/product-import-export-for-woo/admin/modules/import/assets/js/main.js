@@ -779,6 +779,7 @@ var wt_iew_basic_import=(function( $ ) {
 				this.to_import_title=$('[name="wt_iew_import_post_type"] option:selected').text();
 			}
 			$('.wt_iew_step_head_post_type_name').html(this.to_import_title);
+                        $('.wt-ier-green-btn').attr("href", wt_iew_basic_params.pro_plugins[this.to_import]);
 			if(this.to_import_title.includes('User'))
 			$('#user-required-field-message').show();
 		},

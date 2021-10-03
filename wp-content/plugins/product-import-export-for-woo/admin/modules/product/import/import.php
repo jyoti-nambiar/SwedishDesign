@@ -475,7 +475,7 @@ class Wt_Import_Export_For_Woo_Basic_Product_Import {
             if(empty($this->item_data['id'])){                                 
                 $this->item_data['id'] = $this->wt_parse_id_field($mapped_data);
             } 
-
+            
             return $this->item_data;
         } catch (Exception $e) {            
             return new WP_Error('woocommerce_product_importer_error', $e->getMessage(), array('status' => $e->getCode()));
