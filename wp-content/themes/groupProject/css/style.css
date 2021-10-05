@@ -63,7 +63,6 @@ header {
   background-size: covere;
   background-position: right;
   background-attachment: fixed;
-  display: flex;
   align-items: center;
 }
 .home-text h1 {

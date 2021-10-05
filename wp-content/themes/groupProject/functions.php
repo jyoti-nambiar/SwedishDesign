@@ -25,7 +25,7 @@ add_action('wp_enqueue_scripts', 'wp_register_scripts');
 //theme start page background image
 function yourtheme_setup()
 {
-    /* add_theme_support(
+         add_theme_support(
 
         'custom-background',
 
