@@ -20,7 +20,7 @@ section {
 header {
   position: fixed;
   width: 100%;
-  top: 10px;
+  top: 0px;
   right: 0;
   z-index: 1000;
   display: flex;

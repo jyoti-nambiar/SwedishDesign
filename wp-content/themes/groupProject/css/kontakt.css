@@ -8,8 +8,12 @@ body {
     align-items: center;
 }
 
-.wpcf7-form input {
-    min-width: 500px;
+.cta-button {
+    padding: 10px 14px;
+    background: var(--main-color);
+    color: #fff;
+    border-radius: 0.3rem;
+    font-size: 14px;
 }
 
 .grid-construction {
@@ -24,4 +28,18 @@ body {
 .carousell {
     display: flex;
     justify-content: space-between;
+}
+
+
+.contact-form, .map, .title, .welcome-message, .carousell {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.main-kontakt {
+    padding-top: 100px;
+}
+
+.map h3 {
+    margin-bottom: 2em;
 }
