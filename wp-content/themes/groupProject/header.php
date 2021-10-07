@@ -17,7 +17,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class( 'woocommerce' ); ?>>
+<body class="woocommerce">
     <!-- Navbar -->
     <header>
         <a href="#" class="logo">Swedish <span>Design</span></a>
