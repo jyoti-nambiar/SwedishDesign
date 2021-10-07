@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Furniture Website</title>
     <!-- LInk To CSS -->
-
+    <link href="<?php bloginfo('template_directory') ?>/../../plugins/woocommerce/assets/css/woocommerce.css" rel="stylesheet">
     <?php wp_head(); ?>
 </head>
 
