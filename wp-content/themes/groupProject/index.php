@@ -214,9 +214,10 @@ get_header();
 <section class="brands" id="brands">
     <div class="heading">
         <span>Brands</span>
-        <h2>Our Brands Partners</h2>
+        <h2>Our featured Items</h2>
     </div>
     <div class="brands-container">
+
         <img src="img/Google.png" alt="">
         <img src="img/amazon.png" alt="">
         <img src="img/netflix.png" alt="">

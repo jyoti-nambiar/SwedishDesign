@@ -5,7 +5,11 @@ Tags: product export, product import, CSV import export, woocommerce, CSV, produ
 Requires at least: 3.0.1
 Tested up to: 5.8
 Requires PHP: 5.6
+<<<<<<< HEAD
 Stable tag: 2.0.9
+=======
+Stable tag: 2.0.8
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -19,6 +23,7 @@ The Product Import Export for WooCommerce plugin exports and imports WooCommerce
 
 ##Major Features##
 
+<<<<<<< HEAD
 * <strong>Export WooCommerce products into CSV</strong>.
 * <strong>Import products from CSV</strong> to WooCommerce.
 * Supported product types - <strong>simple, grouped, external/affiliate</strong>.
@@ -43,6 +48,25 @@ The Product Import Export for WooCommerce plugin exports and imports WooCommerce
 
 * [Yoast WooCommerce SEO](https://wordpress.org/plugins/wordpress-seo/)
 * [All-in-one SEO](https://wordpress.org/plugins/all-in-one-seo-pack/)
+=======
+* <strong>Export WooCommerce products into CSV</strong> 
+* <strong>Import products from CSV</strong> to WooCommerce 
+* Supported product types - <strong>simple, grouped, external/affiliate</strong>
+* Export and import <strong>products with images</strong>
+* Export and import <strong>products by category/tags/product status</strong>
+* Export and import <strong>product attributes, taxonomies</strong>
+* <strong>Bulk edit products</strong>
+* Compatible with <strong>All-in-one SEO</strong> and <strong>Yoast WooCommerce SEO</strong> plugins
+* <strong>Batch import-export</strong>
+* Option to <strong>update or skip existing products</strong>
+* <strong>Set CSV delimiter</strong> for import
+* Select from <strong>multiple import/export methods</strong>
+* Export and import <strong>column mapping</strong>
+* Import/export using <strong>pre-saved configurations</strong>
+* View <strong>import-export history</strong>
+* View <strong>import log</strong> for easy debugging
+* Tested OK with WooCommerce 5.6
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
 
 
 ###Setup Guide - Product Import Export for WooCommerce###
@@ -69,6 +93,10 @@ Product Import Export Plugin for WooCommerce is the leading tool for the export 
 
  ✅ Export/Import simple, group, external, custom and variation product types.</li>
  ✅ Export/Import custom fields(meta) and hidden meta.</li>
+<<<<<<< HEAD
+=======
+ ✅ Import/Export product reviews.</li>
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
  ✅ Choose from XML/CSV format for import/export.</li>
  ✅ <a href="https://www.webtoffee.com/product-import-export-for-woocommerce/#Step_3_Filter_d4">Various filter options for exporting products</a>
  ✅ <a href="https://www.webtoffee.com/product-import-export-for-woocommerce/#Step_3_Map_impo10">Map and transform fields during import</a>
@@ -86,7 +114,12 @@ Please visit <a rel="nofollow" href="https://www.webtoffee.com/product/product-i
 
 ## Product Import Export Plugin for WooCommerce (Pro) ##
 
+<<<<<<< HEAD
 Following are some of the use-cases supported by the Product Import Export for WooCommerce premium version.
+=======
+[youtube http://www.youtube.com/watch?v=L-01qI1EZWE&rel=0&showinfo=0]
+
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
 
 ### WooCommerce export products (all product types are supported) ###
 There are multiple cases where one needs to export WooCommerce products. It could be either for sending the details to someone else or integrating with a third-party system. With the plugin, you can import all product types including custom product types such as subscription and bundled products. 
@@ -179,10 +212,13 @@ Yes. You can import grouped, affiliate/external products in addition to simple p
 
 == Changelog ==
 
+<<<<<<< HEAD
 = 2.0.9 =
 * WC 5.7 tested OK.
 * Product categories and tags export and import option added.
 
+=======
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
 = 2.0.8 =
 * Fix: Product review import.
 
@@ -496,6 +532,11 @@ Yes. You can import grouped, affiliate/external products in addition to simple p
 
 == Upgrade Notice ==
 
+<<<<<<< HEAD
 = 2.0.9 =
 * WC 5.7 tested OK.
 * Product categories and tags export and import option added.
+=======
+= 2.0.8 =
+* Fix: Product review import.
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b

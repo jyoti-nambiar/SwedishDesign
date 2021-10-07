@@ -214,7 +214,11 @@ class Wt_Import_Export_For_Woo_Basic_Product {
             return $this->product_categories;
         }
         $out = array();
+<<<<<<< HEAD
         $product_categories = get_terms('product_cat', array('hide_empty' => false) );
+=======
+        $product_categories = get_terms('product_cat');
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
         if (!is_wp_error($product_categories)) {
             $version = get_bloginfo('version');
             foreach ($product_categories as $category) {

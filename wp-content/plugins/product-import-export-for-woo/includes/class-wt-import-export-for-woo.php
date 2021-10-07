@@ -80,7 +80,11 @@ class Wt_Import_Export_For_Woo_Basic {
 		if ( defined( 'WT_P_IEW_VERSION' ) ) {
 			$this->version = WT_P_IEW_VERSION;
 		} else {
+<<<<<<< HEAD
 			$this->version = '2.0.9';
+=======
+			$this->version = '2.0.8';
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
 		}
 		$this->plugin_name = 'wt-import-export-for-woo-basic';
 
