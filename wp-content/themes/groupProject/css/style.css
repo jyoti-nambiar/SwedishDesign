@@ -20,7 +20,7 @@ section {
 header {
   position: fixed;
   width: 100%;
-  top: 10px;
+  top: 0px;
   right: 0;
   z-index: 1000;
   display: flex;
@@ -458,6 +458,7 @@ article {
   line-height: 2.5rem;
 }
 
+<<<<<<< HEAD
 .row {
   margin: 3rem;
 }
@@ -465,6 +466,17 @@ article {
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,600,800);
 .woocommerce li.product {
   font-family: "Raleway", Arial, sans-serif;
+=======
+.row{
+  margin: 3rem;
+}
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,600,800);
+.woocommerce li.product {
+  font-family: 'Raleway', Arial, sans-serif;
+>>>>>>> c55e4ced85b956f83aa561f2309425a60ded76f9
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -571,7 +583,11 @@ article {
   opacity: 0.9;
 }
 
+<<<<<<< HEAD
 .span.woocommerce-Price-amount.amount {
+=======
+.span.woocommerce-Price-amount.amount{
+>>>>>>> c55e4ced85b956f83aa561f2309425a60ded76f9
   font-size: 1em;
   font-weight: 700;
 }
@@ -580,6 +596,7 @@ article {
   color: black;
 }
 
+<<<<<<< HEAD
 .woocommerce ul.products.columns-3 li.product,
 .woocommerce-page ul.products.columns-3 li.product {
   width: 30.75%;
@@ -588,3 +605,5 @@ article {
 .cart-contents .fa-shopping-cart:before {
   content: "\f291";
 }
+=======
+>>>>>>> c55e4ced85b956f83aa561f2309425a60ded76f9

@@ -5,6 +5,8 @@ function wp_register_styles()
 
     wp_register_style('style', get_template_directory_uri() . "/css/style.css", array(), $version, 'all');
     wp_enqueue_style('style');
+    wp_register_style('kontakt', get_template_directory_uri() . "/css/kontakt.css", array(), $version, 'all');
+    wp_enqueue_style('kontakt');
 
     wp_register_style("shop-style", get_template_directory_uri() . "/css/shop-style.css", array(), $version, "all");
     wp_enqueue_style("shop-style");
@@ -242,3 +244,9 @@ function wp_sidebar()
     ));
 }
 add_action('widgets_init', 'wp_sidebar');
+function my_custom_tabs_function($tabs)
+{
+    unset($tabs["reviews"]);
+    unset($tabs["additional_information"]);
+    return $tabs;
+}

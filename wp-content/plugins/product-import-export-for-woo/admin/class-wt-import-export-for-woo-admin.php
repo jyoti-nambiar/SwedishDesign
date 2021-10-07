@@ -122,6 +122,10 @@ class Wt_Import_Export_For_Woo_Admin_Basic {
 				'sure'=>__('Are you sure?'),
 				'use_expression'=>__('Use expression as value.'),
 				'cancel'=>__('Cancel'),
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> c55e4ced85b956f83aa561f2309425a60ded76f9
 			),
                     'pro_plugins' => array(
                         'order' => "https://www.webtoffee.com/product/order-import-export-plugin-for-woocommerce/?utm_source=free_plugin_revamp&utm_medium=basic_revamp&utm_campaign=Order_Import_Export&utm_content=".WT_P_IEW_VERSION,
@@ -133,6 +137,13 @@ class Wt_Import_Export_For_Woo_Admin_Basic {
                         'user' => "https://www.webtoffee.com/product/wordpress-users-woocommerce-customers-import-export/?utm_source=free_plugin_revamp&utm_medium=basic_revamp&utm_campaign=User_Import_Export&utm_content=".WT_P_IEW_VERSION,
                     )
                 );
+<<<<<<< HEAD
+=======
+=======
+			)
+		);
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
+>>>>>>> c55e4ced85b956f83aa561f2309425a60ded76f9
 		wp_localize_script($this->plugin_name, 'wt_iew_basic_params', $params);
             }
 
@@ -342,8 +353,16 @@ class Wt_Import_Export_For_Woo_Admin_Basic {
                     'coupon'=>'order-import-export-for-woocommerce',  
                     'product'=>'product-import-export-for-woo',
                     'product_review'=>'product-import-export-for-woo',
+<<<<<<< HEAD
                     'product_categories'=>'product-import-export-for-woo',
                     'product_tags'=>'product-import-export-for-woo',
+=======
+<<<<<<< HEAD
+                    'product_categories'=>'product-import-export-for-woo',
+                    'product_tags'=>'product-import-export-for-woo',
+=======
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
+>>>>>>> c55e4ced85b956f83aa561f2309425a60ded76f9
                     'user'=>'users-customers-import-export-for-wp-woocommerce',                                                          
                 );
                 foreach ($addon_modules_basic as $module_key => $module_path)

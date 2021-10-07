@@ -627,10 +627,23 @@ var wt_iew_basic_export=(function( $ ) {
 			if(this.to_export!="" && this.to_export_title=='')
 			{
 				$('[name="wt_iew_export_post_type"]').val(this.to_export);
+<<<<<<< HEAD
 				this.to_export_title=$('[name="wt_iew_export_post_type"] option:selected').text();                                
 			}
 			$('.wt_iew_step_head_post_type_name').html(this.to_export_title);
                         $('.wt-ier-green-btn').attr("href", wt_iew_basic_params.pro_plugins[this.to_export]);
+=======
+<<<<<<< HEAD
+				this.to_export_title=$('[name="wt_iew_export_post_type"] option:selected').text();                                
+			}
+			$('.wt_iew_step_head_post_type_name').html(this.to_export_title);
+                        $('.wt-ier-green-btn').attr("href", wt_iew_basic_params.pro_plugins[this.to_export]);
+=======
+				this.to_export_title=$('[name="wt_iew_export_post_type"] option:selected').text();
+			}
+			$('.wt_iew_step_head_post_type_name').html(this.to_export_title);
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
+>>>>>>> c55e4ced85b956f83aa561f2309425a60ded76f9
 		},
 		page_actions:function(step)
 		{
