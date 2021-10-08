@@ -5,8 +5,8 @@
 
 <section class="footer" id="footer">
     <div class="footer-box">
-        <h2>Brand <span>X.</span></h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt amet minus mollitia impedit qui asperiores!</p>
+        <h2>Swedish <span>Design</span></h2>
+        <p>The stop solution to all your furnishing needs. We are now even online where we give our cutomer the same service as are shops.</p>
         <div class="social">
             <a href="#"><i class='bx bxl-facebook'></i></a>
             <a href="#"><i class='bx bxl-twitter'></i></a>
@@ -14,24 +14,16 @@
         </div>
     </div>
     <div class="footer-box">
-        <h3>Services</h3>
-        <li><a href="#">Product</a></li>
-        <li><a href="#">Help & Support</a></li>
-        <li><a href="#">Pricing</a></li>
-        <li><a href="#">FAQ</a></li>
+        <?php dynamic_sidebar('footer-1');  ?>
     </div>
     <div class="footer-box">
-        <h3>Product</h3>
-        <li><a href="#">Sofa's</a></li>
-        <li><a href="#">Chair's</a></li>
-        <li><a href="#">Living Room</a></li>
-        <li><a href="#">Office</a></li>
+        <?php dynamic_sidebar('footer-2');  ?>
     </div>
     <div class="footer-box contact-info">
         <h3>Contact</h3>
-        <span>New York City, USA 10004</span>
+        <span>Swedish Design – Kungsgatan 19</span>
         <span>+1 100 1004 0001</span>
-        <span>brian@brandx.com</span>
+        <span>swedishDesigns@brandx.se</span>
 
     </div>
 </section>

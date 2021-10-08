@@ -5,8 +5,18 @@
   Description: Import and Export Products From and To your WooCommerce Store.
   Author: WebToffee
   Author URI: https://www.webtoffee.com/product/product-import-export-woocommerce/
+<<<<<<< HEAD
+  Version: 2.0.9
+  WC tested up to: 5.7
+=======
+<<<<<<< HEAD
+  Version: 2.0.9
+  WC tested up to: 5.7
+=======
   Version: 2.0.8
   WC tested up to: 5.6
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
+>>>>>>> c55e4ced85b956f83aa561f2309425a60ded76f9
   License:           GPLv3
   License URI:       https://www.gnu.org/licenses/gpl-3.0.html
   Text Domain: product-import-export-for-woo
@@ -43,7 +53,15 @@ if ( !defined( 'WT_IEW_DEBUG_BASIC_TROUBLESHOOT' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
+<<<<<<< HEAD
+define( 'WT_P_IEW_VERSION', '2.0.9' );
+=======
+<<<<<<< HEAD
+define( 'WT_P_IEW_VERSION', '2.0.9' );
+=======
 define( 'WT_P_IEW_VERSION', '2.0.8' );
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
+>>>>>>> c55e4ced85b956f83aa561f2309425a60ded76f9
 
 /**
  * The code that runs during plugin activation.
@@ -119,7 +137,20 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wt-import-export-for-woo.p
 
 $advanced_settings = get_option('wt_iew_advanced_settings', array());
 $ier_get_max_execution_time = (isset($advanced_settings['wt_iew_maximum_execution_time']) && $advanced_settings['wt_iew_maximum_execution_time'] != '') ? $advanced_settings['wt_iew_maximum_execution_time'] : ini_get('max_execution_time');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> c55e4ced85b956f83aa561f2309425a60ded76f9
+
+if (strpos(@ini_get('disable_functions'), 'set_time_limit') === false) {
+        @set_time_limit($ier_get_max_execution_time);
+}
+<<<<<<< HEAD
+=======
+=======
 set_time_limit($ier_get_max_execution_time);
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
+>>>>>>> c55e4ced85b956f83aa561f2309425a60ded76f9
 
 /**
  * Begins execution of the plugin.
@@ -222,6 +253,16 @@ $product_legacy_menu->old_menu_params	 = array(
 );
 
 
+<<<<<<< HEAD
+include_once 'class-wt-product-review-request.php';
+
+=======
+<<<<<<< HEAD
+include_once 'class-wt-product-review-request.php';
+
+=======
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
+>>>>>>> c55e4ced85b956f83aa561f2309425a60ded76f9
 // Add dismissible server info for file restrictions
 include_once plugin_dir_path( __FILE__ ) . 'includes/class-wt-non-apache-info.php';
 $inform_server_secure					 = new wt_inform_server_secure( 'product' );

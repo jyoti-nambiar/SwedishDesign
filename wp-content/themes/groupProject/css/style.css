@@ -20,7 +20,7 @@ section {
 header {
   position: fixed;
   width: 100%;
-  top: 10px;
+  top: 0px;
   right: 0;
   z-index: 1000;
   display: flex;
@@ -48,7 +48,7 @@ header {
   color: var(--text-color);
 }
 .menu a:hover {
-  color: var(--main-color);
+  background-color: var(--main-color);
 }
 #menu-icon {
   font-size: 2rem;
@@ -188,11 +188,7 @@ section#home {
   color: var(--main-color);
 }
 
-.iframe {
-  margin-top: 2rem;
-}
-
-iframe{
+iframe {
   width: 80%;
   height: 300px;
   border-radius: 10px;
@@ -280,16 +276,28 @@ iframe{
 .social a:hover {
   color: var(--main-color);
 }
-.footer-box h3 {
+.widget_nav_menu h3 {
   font-weight: 500;
   margin-bottom: 10px;
 }
-.footer-box li a {
+
+.menu li a {
   color: var(--text-color);
 }
-.footer-box li a:hover {
-  color: var(--main-color);
+.menu li a:hover {
+  background-color: var(--main-color);
 }
+
+/*Footer menu*/
+#menu-footer-menu,
+#menu-blog-category {
+  display: block;
+}
+#menu-footer-menu li,
+#menu-blog-category li {
+  margin: 10px;
+}
+
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -413,12 +421,15 @@ article {
   width: calc(100% - 48px);
   bottom: 0;
   padding: 24px;
-  color: #fff;
   text-decoration: none;
-  text-shadow: #000000;
   font-weight: bold;
-  font-size: 1.5rem;
-  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  font-size: 1.2rem;
+}
+
+.post-content p {
+  color: rgb(255, 255, 255);
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
+  font-size: 1.2rem;
 }
 
 .post-category {
@@ -459,15 +470,13 @@ article {
   line-height: 2.5rem;
 }
 
-.row{
+.row {
   margin: 3rem;
 }
 
-
-
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,600,800);
 .woocommerce li.product {
-  font-family: 'Raleway', Arial, sans-serif;
+  font-family: "Raleway", Arial, sans-serif;
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -582,6 +591,7 @@ article {
 .woocommerce ul.products li.product .price {
   color: black;
 }
+
 
 /* Slider */
 
@@ -704,3 +714,13 @@ a {
   text-decoration: underline;
   font-weight: 800;
 }
+
+.woocommerce ul.products.columns-3 li.product,
+.woocommerce-page ul.products.columns-3 li.product {
+  width: 30.75%;
+}
+
+.cart-contents .fa-shopping-cart:before {
+  content: "\f291";
+}
+

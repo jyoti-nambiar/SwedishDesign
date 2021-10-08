@@ -475,7 +475,15 @@ class Wt_Import_Export_For_Woo_Basic_Product_Import {
             if(empty($this->item_data['id'])){                                 
                 $this->item_data['id'] = $this->wt_parse_id_field($mapped_data);
             } 
+<<<<<<< HEAD
+            
+=======
+<<<<<<< HEAD
+            
+=======
 
+>>>>>>> f25ac3c1800cab59c420e7d50b18a8d305c92f5b
+>>>>>>> c55e4ced85b956f83aa561f2309425a60ded76f9
             return $this->item_data;
         } catch (Exception $e) {            
             return new WP_Error('woocommerce_product_importer_error', $e->getMessage(), array('status' => $e->getCode()));
