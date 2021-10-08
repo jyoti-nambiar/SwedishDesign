@@ -9,198 +9,189 @@ get_header();
 
 <!-- Home -->
 <section class="home" id="home">
-    <div class="home-text">
-        <h1><Span>Make</Span>Your Comfort <br> Is Our <span>Happiness</span></h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Dolores veritatis ad blanditiis molestias sunt aspernatur.</p>
-        <a href="shop" class="btn">Shop Now</a>
+
+    <div class="container">
+        <div class="row">
+            <?php
+            $arg = array(
+                'post_type'         => 'slider',
+                'posts_per_page'    => 4,
+            );
+            $slider = new WP_Query($arg);
+            $j = 0;
+            $post_count = wp_count_posts('slider')->publish;
+            ?>
+            <!-- Carousel -->
+
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+
+                <ol class="carousel-indicators">
+                    <?php for ($i = 0; $i < $post_count; $i++) : ?>
+                        <li data-target="#carousel-example-generic" data-slide-to="<?php echo $i; ?>" class="active"></li>
+                    <?php endfor; ?>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <?php while ($slider->have_posts()) : $slider->the_post(); ?>
+                        <div class="carousel-item <?php echo $key == 0  ? "active" : "" ?>">
+                            <?php if (has_post_thumbnail()) : the_post_thumbnail('slider');
+                            endif; ?>
+
+                            <!-- Static Header -->
+                            <div class="header-text hidden-xs">
+                                <div class="col-md-12 text-center">
+                                    <h2>
+                                        <span><strong><?php the_title() ?></strong></span>
+                                    </h2>
+                                    <br>
+                                    <h3>
+                                        <a href="<?php echo get_post_meta(get_the_ID(), '_slider_link_value_key', true); ?>"><?php the_excerpt(); ?></span></a>
+                                    </h3>
+                                </div>
+                            </div><!-- /header-text -->
+                        </div>
+                    <?php $j++;
+                    endwhile;
+                    wp_reset_query(); ?>
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div><!-- /carousel -->
+        </div>
     </div>
 </section>
+
 <!-- Shop -->
 <section class="shop" id="shop">
-    <div class="heading">
-        <span>New Arrival</span>
-        <h2>Shop Now</h2>
-    </div>
-    <!-- Content -->
-    <div class="shop-container">
-        <!-- Box 1 -->
-        <div class="box">
-            <div class="box-img">
-                <img src="img/p1.jpg" alt="">
-            </div>
-            <div class="title-price">
-                <h3>Gray Chair</h3>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-            </div>
-            <span>46$</span>
-            <i class='bx bx-cart'></i>
+
+    <ul class="products">
+        <div class="heading">
+            <span>Featured products</span>
+            <h2>Shop Now</h2>
         </div>
-        <!-- Box 2 -->
-        <div class="box">
-            <div class="box-img">
-                <img src="img/p2.jpg" alt="">
-            </div>
-            <div class="title-price">
-                <h3>Gray Chair</h3>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-            </div>
-            <span>46$</span>
-            <i class='bx bx-cart'></i>
+        <div class="shop-container">
+            <?php
+            $args = array(
+                'post_type' => 'product',
+                'posts_per_page' => 3,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'product_visibility',
+                        'field'    => 'name',
+                        'terms'    => 'featured',
+                    ),
+                ),
+            );
+            $loop = new WP_Query($args);
+            if ($loop->have_posts()) {
+                while ($loop->have_posts()) : $loop->the_post();
+            ?>
+                    <div class="box">
+                        <div class="box-img">
+                            <?php global $product; ?>
+                            <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>" />
+                        </div>
+                        <div class="title-price">
+                            <h3><?php echo $product->post->post_title; ?></h3>
+                            <span><?php echo $product->price; ?></span>
+
+                        </div>
+                    </div>
+
+            <?php
+                endwhile;
+            } else {
+                echo __('No products found');
+            }
+            wp_reset_postdata();
+            ?>
+    </ul>
+
+    <!-- New Arrival -->
+
+    <ul class="products">
+        <div class="heading">
+            <span>Our sofas</span>
+            <h2>Shop Now</h2>
         </div>
-        <!-- Box 3 -->
-        <div class="box">
-            <div class="box-img">
-                <img src="img/p3.jpg" alt="">
-            </div>
-            <div class="title-price">
-                <h3>Gray Chair</h3>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-            </div>
-            <span>46$</span>
-            <i class='bx bx-cart'></i>
+        <div class="shop-container">
+            <?php
+            $args = array(
+                'post_type' => 'product',
+                'posts_per_page' => 3,
+                'product_cat' => 'sofas'
+            );
+            $loop = new WP_Query($args);
+            if ($loop->have_posts()) {
+                while ($loop->have_posts()) : $loop->the_post();
+            ?>
+                    <div class="box">
+                        <div class="box-img">
+                            <?php global $product; ?>
+                            <img src="<?php echo wp_get_attachment_url($product->get_image_id()); ?>" />
+                        </div>
+                        <div class="title-price">
+                            <h3><?php echo $product->post->post_title; ?></h3>
+                            <span><?php echo $product->price; ?></span>
+
+                        </div>
+                    </div>
+
+            <?php
+                endwhile;
+            } else {
+                echo __('No products found');
+            }
+            wp_reset_postdata();
+            ?>
+    </ul>
+
+    <ul class="products">
+        <div class="heading">
+            <span>Our Blog</span>
+            <h2>Get inspired</h2>
         </div>
-        <!-- Box 4 -->
+        <div class="shop-container">
+    <?php
+    $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => 3,
+    );
+    $loop = new WP_Query($args);
+    if ($loop-> have_posts() ) {
+	while ($loop-> have_posts() ) {
+        $loop -> the_post(); 
+        ?>
         <div class="box">
-            <div class="box-img">
-                <img src="img/p4.jpg" alt="">
-            </div>
-            <div class="title-price">
-                <h3>Gray Chair</h3>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-            </div>
-            <span>46$</span>
-            <i class='bx bx-cart'></i>
-        </div>
-        <!-- Box 5 -->
-        <div class="box">
-            <div class="box-img">
-                <img src="img/p5.jpg" alt="">
-            </div>
-            <div class="title-price">
-                <h3>Gray Chair</h3>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-            </div>
-            <span>46$</span>
-            <i class='bx bx-cart'></i>
-        </div>
-        <!-- Box 6 -->
-        <div class="box">
-            <div class="box-img">
-                <img src="img/p6.jpg" alt="">
-            </div>
-            <div class="title-price">
-                <h3>Gray Chair</h3>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-            </div>
-            <span>46$</span>
-            <i class='bx bx-cart'></i>
-        </div>
-    </div>
-</section>
-<!-- New Arrival -->
-<section class="new" id="new">
-    <div class="heading">
-        <span>New Collection</span>
-        <h2>Best Selling</h2>
-    </div>
-    <!-- Content -->
-    <div class="new-container">
-        <!-- Box 1 -->
-        <div class="box">
-            <div class="box-img">
-                <img src="img/new1.jpg" alt="">
-            </div>
-            <div class="title-price">
-                <h3>Gray Chair</h3>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-            </div>
-            <span>46$</span>
-            <i class='bx bx-cart'></i>
-        </div>
-        <!-- Box 2 -->
-        <div class="box">
-            <div class="box-img">
-                <img src="img/new2.jpg" alt="">
-            </div>
-            <div class="title-price">
-                <h3>Gray Chair</h3>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-            </div>
-            <span>46$</span>
-            <i class='bx bx-cart'></i>
-        </div>
-        <!-- Box 3 -->
-        <div class="box">
-            <div class="box-img">
-                <img src="img/new3.jpg" alt="">
-            </div>
-            <div class="title-price">
-                <h3>Gray Chair</h3>
-                <div class="stars">
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-            </div>
-            <span>46$</span>
-            <i class='bx bx-cart'></i>
-        </div>
-    </div>
+                        <div class="box-img">
+                            <img src="<?php echo the_post_thumbnail_url() ?>" />
+                        </div>
+                        <div class="title-price">
+                            <span><?php the_title(); ?></span>
+
+                        </div>
+                    </div>
+        <?php
+	} // end while
+} // end if
+?>
+</div>
+</ul>
+    
+    
+    
 </section>
 <!-- About -->
 <section class="about" id="about">
     <div class="about-img">
-        <img src="<?php echo get_template_directory_uri() . 'img/about.jpg' ?>" alt="">
+        <!--   <img src="<?php echo get_template_directory_uri() . 'img/about.jpg' ?>" alt=""> -->
     </div>
     <div class="about-text">
         <span>About Us</span>
@@ -218,12 +209,12 @@ get_header();
     </div>
     <div class="brands-container">
 
-        <img src="img/Google.png" alt="">
+        <!--    <img src="img/Google.png" alt="">
         <img src="img/amazon.png" alt="">
         <img src="img/netflix.png" alt="">
         <img src="img/tesla.png" alt="">
         <img src="img/starbucks.png" alt="">
-        <img src="img/zoom.png" alt="">
+        <img src="img/zoom.png" alt=""> -->
     </div>
 </section>
 <section class="newsletter" id="contact">

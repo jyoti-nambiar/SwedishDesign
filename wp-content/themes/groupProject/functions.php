@@ -1,7 +1,11 @@
 <?php
+
 function wp_register_styles()
 {
     $version = wp_get_theme()->get('Version');
+
+    wp_register_style("bootstrap-css", get_template_directory_uri() . "/css/bootstrap.min.css");
+    wp_enqueue_style("bootstrap-css");
 
     wp_register_style('style', get_template_directory_uri() . "/css/style.css", array(), $version, 'all');
     wp_enqueue_style('style');
@@ -11,41 +15,41 @@ function wp_register_styles()
 
     wp_register_style('boxicons', 'https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css', array(), '1.0', 'all');
     wp_enqueue_style('boxicons');
+
 }
 add_action('wp_enqueue_scripts', 'wp_register_styles');
+
 
 //loading scripts files for jquery, and custom js
 function wp_register_scripts()
 {
-
-
+    wp_register_script('bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array("jquery"), "20120206", true);
+    wp_enqueue_script('bootstrap-js');
+   
     wp_register_script('myscript', get_template_directory_uri() . '/js/main.js', array(), 1, 1, 1);
     wp_enqueue_script('myscript');
+
 }
 add_action('wp_enqueue_scripts', 'wp_register_scripts');
+
+
 
 //theme start page background image
 function yourtheme_setup()
 {
+
     add_theme_support(
 
         'custom-background',
-
+        
         array(
 
             'default-color' => '2d2d2d',
-
             'default-image' => get_template_directory_uri() . '/img/background.jpg',
-
             'default-repeat'     => 'no-repeat',
-
             'default-position-x' => 'center',
-
             'default-attachment' => 'fixed',
-
-
-
-        ),
+        ), 
 
     );
     add_theme_support("post-thumbnails");
@@ -78,23 +82,6 @@ function our_stores(){
 
 }
 add_action("init", "our_stores");
-
-/* function store_taxonomy(){
-
-    $args = array(
-            "labels" => array(
-                    "name" => "Locations",
-                    "singular_name" => "Location"
-    ),
-    "public" => true,
-    "hierarchical" => false
-
-    );
-
-    register_taxonomy("locations", array("stores"), $args);
-
-}
-add_action("init", "store_taxonomy"); */
 
 
 //hooking menus
@@ -145,15 +132,17 @@ add_action("woocommerce_before_shop_loop_item_title", "start_my_product_tag", 15
 add_action("woocommerce_after_shop_loop_item", "end_my_product_tag", 15);
 add_action("woocommerce_after_shop_loop_item_title", "my_product_excerpt", 5);
 
-
+//Adding <figcaption> 
 function start_my_product_tag(){
     echo "<figcaption>";
 }
 
+//Ending <figcaption>
 function end_my_product_tag(){
     echo "</figcaption>";
 }
 
+//Adding excerpt to all products in shop page with text limit
 function my_product_excerpt(){
     $text = get_the_excerpt();
     echo "<p>".substr($text, 0, 65)."</p>";
@@ -167,3 +156,84 @@ function my_custom_tabs_function($tabs){
     unset($tabs["additional_information"]);
     return $tabs;
 }
+
+
+//Front page slider using custom post types
+
+function create_slider_post_type() {
+ 
+	$labels = array(
+		'name' => __( 'Sliders' ),
+		'singular_name' => __( 'Slider' ),
+		'all_items'           => __( 'All Sliders' ),
+		'view_item'           => __( 'View Slider' ),
+		'add_new_item'        => __( 'Add New Slider' ),
+		'add_new'             => __( 'Add New Slider' ),
+		'edit_item'           => __( 'Edit Slider' ),
+		'update_item'         => __( 'Update Slider' ),
+		'search_items'        => __( 'Search Slider' ),
+		'search_items' => __('Sliders')
+	);
+
+	$args = array(
+		'labels' => $labels,
+		'description' => 'Add New Slider contents',
+		'menu_position' => 27,
+		'public' => true,
+		'has_archive' => true,
+		'map_meta_cap' => true,
+		'capability_type' => 'post',
+		'hierarchical' => true,
+		'rewrite' => array('slug' => false),
+		'menu_icon'=>'dashicons-format-image',
+		'supports' => array(
+			'title',
+			'thumbnail','excerpt'
+		),
+	);
+	register_post_type( 'slider', $args);
+ 
+}
+add_action( 'init', 'create_slider_post_type' );
+
+//Removing the editor and slug field from 
+
+add_action( 'init', function() {
+    remove_post_type_support( 'slider', 'editor' );
+    remove_post_type_support( 'slider', 'slug' );
+} );
+
+function sliderLink_add_meta_box() {
+    add_meta_box('slider_link','Slider Link','slider_link_callback','slider');
+ }
+  
+ function slider_link_callback( $post ) {
+  
+    wp_nonce_field('slider_link_save','slider_link_meta_box_nonce');
+    $value = get_post_meta($post->ID,'_slider_link_value_key',true);
+    ?>
+     <input type="text" name="slider_link_field" id="slider_link_field" value="<?php echo esc_attr( $value ); ?>" required="required" size="73" />
+    <?php
+ }
+ add_action('add_meta_boxes','sliderLink_add_meta_box');
+ 
+ function slider_link_save( $post_id ) {
+    if( ! isset($_POST['slider_link_meta_box_nonce'])) {
+       return;
+    }
+    if( ! wp_verify_nonce( $_POST['slider_link_meta_box_nonce'], 'slider_link_save') ) {
+       return;
+    }
+    if( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) {
+       return;
+    }
+    if( ! current_user_can('edit_post', $post_id)) {
+       return;
+    }
+    if( ! isset($_POST['slider_link_field'])) {
+       return;
+    }
+    $slider_link = sanitize_text_field($_POST['slider_link_field']);
+    update_post_meta( $post_id,'_slider_link_value_key', $slider_link );
+ }
+ add_action('save_post','slider_link_save');
